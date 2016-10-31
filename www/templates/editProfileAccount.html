@@ -1,0 +1,86 @@
+<ion-view title="edit Profile" id="editProfilePage">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+     <ion-nav-buttons side="left">
+    <button ui-sref="settings"  class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content padding="true" class="form-container">
+        <div class="image-wrapper"><img src="img/login-image.png"></div>
+        <form class="list" id="editProfile" name="editProfile" novalidate>
+             <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">First Name</span>
+                    <input type="text" placeholder="" name="Patient[first_name]" ng-model="Data.firstName"  required  >
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Last Name</span>
+                    <input type="text" placeholder="" name="Patient[last_name]" ng-model="Data.lastName" required >
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Date of Birth</span>
+                   <!-- <input type="text" pick-a-date="date" pick-a-date-options="{ format: 'dd-mm-yyyy' }" name="date_of_birth" ng-model="Data.dateOfBirth">-->
+
+
+
+                    <input type="hidden"  ion-datetime-picker date value='{{Data.dateOfBirth| date: "yyyy-MM-dd"}}' name="date_of_birth" ng-model="Data.dateOfBirth"  required>
+<div ion-datetime-picker date ng-model="Data.dateOfBirth">
+            {{Data.dateOfBirth| date: "yyyy-MM-dd"}}
+            </div>
+                </label>
+            </div>
+            <div class="list">    
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Gender</span>
+                    <div class="row">
+                        <div class="col">                            
+                           <ion-radio name="gender" class="col" ng-model="Data.gender" ng-value="'1'" required >Male</ion-radio>
+                        </div>
+                        <div class="col">
+                            <ion-radio name="gender" class="col" ng-model="Data.gender" ng-value="'2'" required>Female</ion-radio>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <div class="list multiSelect-wrapper">
+               <label for="allergiesSelect"> Allergies </label>
+                            <div name="allergies" id="investigationSelect"             
+                                 isteven-multi-select
+                                 input-model="allergies"
+                                 output-model="outputAllergiesList"
+                                 button-label="icon name"
+                                 item-label="icon name maker"
+                                 tick-property="ticked"
+                                 selection-mode="multiple"
+                                  ng-model="outputAllergiesList"
+                                 >
+                            </div>
+                   
+                 
+            </div>
+            <div class="list multiSelect-wrapper">
+                <label for="diseasesSelect"> diseases </label>
+                            <div name="diseases" id="investigationSelect"             
+                                 isteven-multi-select
+                                 input-model="diseases"
+                                 output-model="outputDiseasesList"
+                                 button-label="icon name"
+                                 item-label="icon name maker"
+                                 tick-property="ticked"
+                                 selection-mode="multiple"
+                                 ng-model="outputDiseasesList"
+                                 
+                                 >
+                            </div>
+            </div>
+         
+
+            
+            <button  id="eddit_signup"  class="button button-positive  button-block general-btn-font-color general-btn-bg-style" ng-disabled="editProfile.$invalid"  ng-click="editPatient(Data, outputAllergiesList,outputDiseasesList);">Edit</button>
+
+           
+        </form>
+        <div id="errorsdialog" title="Errors"></div>
+    </ion-content>
+</ion-view>
