@@ -1,0 +1,57 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "737616708845",
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "plugin.google.maps": {
+            "API_KEY_FOR_ANDROID": "AIzaSyAxElcZclcaSwQ5MYW2J3NsSCewCZCFS54",
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.zadsolutions.kashf"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.zadsolutions.kashf"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.zadsolutions.apps.kashf"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.zadsolutions.apps.kashf"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.zadsolutions.apps.kashf"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.zadsolutions.apps.kashf"
+        }
+    }
+}
