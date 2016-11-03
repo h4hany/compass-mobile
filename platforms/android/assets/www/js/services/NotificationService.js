@@ -13,7 +13,26 @@ angular.module('app.services')
                     window.localStorage.removeItem('notificationVer');
                     window.localStorage.removeItem('notification');
                 };
+                this.UpdateVisitLocalDB = function (visit) {
+                    window.localStorage.setItem('visitVer', visit.visitVer);
+                    var newvisit = null;
+                    if (mainScope.GetVisitLocalDB() === null)
+                    {
+                        newvisit = visit.visit;
+                    } else
+                    {
+                        var obj = mainScope.GetVisitLocalDB();
+                        var newObj = visit.visit
+                        newObj.forEach(function (entry) {
+                            obj.push(entry);
+                        });
+                        obj.concat(visit.visit);
+                        newvisit = obj;
 
+                    }
+                    window.localStorage.setItem('visit', JSON.stringify(newvisit));
+
+                };
 
                 this.DeleteNotifyById = function (index) {
                     var obj = mainScope.GetNotifyLocalDB();

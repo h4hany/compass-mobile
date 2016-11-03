@@ -24,175 +24,33 @@ angular.module('app.services')
                 this.getGlopalTimer = function () {
                     return mainScope.GlopalTimer;
                 };
-                /********START********Config Update allergies**********/
-                this.allergiesLock = false;
-                this.allergiesBlockTimer = 0;
+                /********START********Config Update Glopal Service Bloker Example**********/
+                this.glopalExampleLock = false;
+                this.glopalExampleBlockTimer = 0;
                 this.getAllergiesLock = function () {
-                    return this.allergiesLock;
+                    return this.glopalExampleLock;
                 };
 
                 this.setAllergiesLock = function (val) {
                     if (val) {
-                        if (mainScope.allergiesBlockTimer == 0)
+                        if (mainScope.glopalExampleBlockTimer == 0)
                         {
-                            mainScope.allergiesLock = val;
-                            mainScope.allergiesBlockTimer = mainScope.blockSec;
-                            var allergiesInterval = setInterval(function () {
-                                mainScope.allergiesBlockTimer -= 1000;
-                                if (mainScope.allergiesBlockTimer < 0 || mainScope.allergiesBlockTimer == 0) {
-                                    clearInterval(allergiesInterval);
-                                    mainScope.allergiesBlockTimer = 0;
+                            mainScope.glopalExampleLock = val;
+                            mainScope.glopalExampleBlockTimer = mainScope.blockSec;
+                            var glopalExampleInterval = setInterval(function () {
+                                mainScope.glopalExampleBlockTimer -= 1000;
+                                if (mainScope.glopalExampleBlockTimer < 0 || mainScope.glopalExampleBlockTimer == 0) {
+                                    clearInterval(glopalExampleInterval);
+                                    mainScope.glopalExampleBlockTimer = 0;
                                 }
                             }, 1000);
                         }
 
                     } else {
-                        this.allergiesLock = val;
+                        this.glopalExampleLock = val;
                     }
                 };
-                /********END********Config Update allergies**********/
-                /********START********Config Update area**********/
-                this.areaLock = false;
-                this.areaBlockTimer = 0;
-                this.getAreaLock = function () {
-                    return this.areaLock;
-                };
-
-                this.setAreaLock = function (val) {
-                    if (val) {
-                        if (mainScope.areaBlockTimer == 0)
-                        {
-                            mainScope.areaLock = val;
-                            mainScope.areaBlockTimer = mainScope.blockSec;
-                            var areaInterval = setInterval(function () {
-                                mainScope.areaBlockTimer -= 1000;
-                                if (mainScope.areaBlockTimer < 0 || mainScope.areaBlockTimer == 0) {
-                                    clearInterval(areaInterval);
-                                    mainScope.areaBlockTimer = 0;
-                                }
-                            }, 1000);
-
-                        }
-
-                    } else {
-                        this.areaLock = val;
-                    }
-                };
-                /********END********Config Update area**********/
-                /********START********Config Update diseases**********/
-                this.diseasesLock = false;
-                this.diseasesBlockTimer = 0;
-                this.getDiseasesLock = function () {
-                    return this.diseasesLock;
-                };
-
-                this.setDiseasesLock = function (val) {
-                    if (val) {
-                        if (mainScope.diseasesBlockTimer == 0)
-                        {
-                            mainScope.diseasesLock = val;
-                            mainScope.diseasesBlockTimer = mainScope.blockSec;
-                            var diseasesInterval = setInterval(function () {
-                                mainScope.diseasesBlockTimer -= 1000;
-                                if (mainScope.diseasesBlockTimer < 0 || mainScope.diseasesBlockTimer == 0) {
-                                    clearInterval(diseasesInterval);
-                                    mainScope.diseasesBlockTimer = 0;
-                                }
-                            }, 1000);
-                        }
-
-                    } else {
-                        this.diseasesLock = val;
-                    }
-                };
-                /********END********Config Update diseases**********/
-                /********START********Config Update Inv**********/
-                this.invLock = false;
-                this.investBlockTimer = 0;
-                this.getInvLock = function () {
-                    return this.invLock;
-                };
-
-                this.setInvLock = function (val) {
-                    if (val) {
-                        if (mainScope.investBlockTimer == 0)
-                        {
-                            mainScope.invLock = val;
-                            mainScope.investBlockTimer = mainScope.blockSec;
-                            var investInterval = setInterval(function () {
-                                mainScope.investBlockTimer -= 1000;
-                                if (mainScope.investBlockTimer < 0) {
-                                    clearInterval(investInterval);
-                                    mainScope.investBlockTimer = 0;
-                                }
-                            }, 1000);
-
-                        } /*else {
-                         setTimeout(function () {
-                         mainScope.invLock = val;
-                         mainScope.investBlockTimer = mainScope.blockSec;
-                         }, mainScope.investBlockTimer);
-                         }*/
-
-                    } else {
-                        this.invLock = val;
-                    }
-                };
-                /********END********Config Update Inv**********/
-                /********START********Config Update Spec**********/
-                this.specLock = false;
-                this.specBlockTimer = 0;
-                this.getSpecLock = function () {
-                    return this.specLock;
-                };
-
-                this.setSpecLock = function (val) {
-                    if (val) {
-                        if (mainScope.specBlockTimer == 0)
-                        {
-                            mainScope.specLock = val;
-                            mainScope.specBlockTimer = mainScope.blockSec;
-
-                        } else {
-                            setTimeout(function () {
-                                mainScope.specLock = val;
-                                mainScope.specBlockTimer = mainScope.blockSec;
-                            }, mainScope.specBlockTimer);
-                        }
-
-                    } else {
-                        this.specLock = val;
-                    }
-                };
-                /********END********Config Update Spec**********/
-                /********START********Config Update Treat**********/
-                this.treatLock = false;
-                this.treatBlockTimer = 0;
-                this.getTreatLock = function () {
-                    return this.treatLock;
-                };
-
-                this.setTreatLock = function (val) {
-                    if (val) {
-                        if (mainScope.treatBlockTimer == 0)
-                        {
-                            mainScope.treatLock = val;
-                            mainScope.treatBlockTimer = mainScope.blockSec;
-                            var treatInterval = setInterval(function () {
-                                mainScope.treatBlockTimer -= 1000;
-                                if (mainScope.treatBlockTimer < 0 || mainScope.treatBlockTimer == 0) {
-                                    clearInterval(treatInterval);
-                                    mainScope.treatBlockTimer = 0;
-                                }
-                            }, 1000);
-                        }
-
-                    } else {
-                        this.treatLock = val;
-                    }
-                };
-                /********END********Config Update Treat**********/
-                /********START********Config Update Notification**********/
+                /********END********Config Update Glopal Service Bloker Example**********/                /********START********Config Update Notification**********/
                 this.notifyLock = false;
                 this.notifyBlockTimer = 0;
                 this.getNotifyLock = function () {
@@ -219,33 +77,7 @@ angular.module('app.services')
                     }
                 };
                 /********END********Config Update Notification**********/
-                /********START********Config Update Visit**********/
-                this.visitLock = false;
-                this.visitBlockTimer = 0;
-                this.getVisitLock = function () {
-                    return this.visitLock;
-                };
 
-                this.setVisitLock = function (val) {
-                    if (val) {
-                        if (mainScope.visitBlockTimer == 0)
-                        {
-                            mainScope.visitLock = val;
-                            mainScope.visitBlockTimer = mainScope.blockSec;
-                            var visitInterval = setInterval(function () {
-                                mainScope.visitBlockTimer -= 1000;
-                                if (mainScope.visitBlockTimer < 0 || mainScope.visitBlockTimer == 0) {
-                                    clearInterval(visitInterval);
-                                    mainScope.notifyBlockTimer = 0;
-                                }
-                            }, 1000);
-                        }
-
-                    } else {
-                        this.visitLock = val;
-                    }
-                };
-                /********END********Config Update Visit**********/
                 /********START********Config Update Profile**********/
                 this.profileLock = false;
                 this.profileBlockTimer = 0;
@@ -273,33 +105,7 @@ angular.module('app.services')
                     }
                 };
                 /********END********Config Update Profile**********/
-                /********START********Config Update Grade**********/
-                this.gradeLock = false;
-                this.gradeBlockTimer = 0;
-                this.getGradeLock = function () {
-                    return this.gradeLock;
-                };
-
-                this.setGradeLock = function (val) {
-                    if (val) {
-                        if (mainScope.gradeBlockTimer == 0)
-                        {
-                            mainScope.gradeLock = val;
-                            mainScope.gradeBlockTimer = mainScope.blockSec;
-                            var gradeInterval = setInterval(function () {
-                                mainScope.gradeBlockTimer -= 1000;
-                                if (mainScope.gradeBlockTimer < 0 || mainScope.gradeBlockTimer == 0) {
-                                    clearInterval(gradeInterval);
-                                    mainScope.gradeBlockTimer = 0;
-                                }
-                            }, 1000);
-                        }
-
-                    } else {
-                        this.gradeLock = val;
-                    }
-                };
-                /********END********Config Update Grade**********/
+                
                 this.getAppPassword = function () {
                     return "aklel3asal7elw:D";
                 };
@@ -309,15 +115,15 @@ angular.module('app.services')
                 };
 
                 this.getTestServerUrl = function () {
-                    return "http://test.kashfapp.zadsolutions.com/";
+                    return "Should Be Replaced with Test Server URL";
                 };
 
                 this.getDevServerUrl = function () {
-                    return "aklel3asal7elw:D";
+                    return "Should Be Replaced with Dev Server URL";
                 };
 
                 this.getLocalServerUrl = function () {
-                    return "http://192.168.1.14/new/admin/index.php/";
+                    return "Should Be Replaced with Local Server URL";
                 };
 
                 this.getApiDIR = function () {

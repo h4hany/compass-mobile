@@ -4,10 +4,8 @@ angular.module('app.controllers')
             $scope.menustatus = true;
             $("ion-item").removeClass("item-complex");
             $("ion-side-menu").removeClass("has-header");
-            $scope.patientsList = profileService.GetProfileLocalDB();
-            $scope.mainName = $scope.patientsList[0].main.name
-            $scope.gender = $scope.patientsList[0].main.gender;
-            if ($scope.patientsList[0].main.gender == 0) {
+            
+            if (1 == 1) {
                 $scope.image = "MaleaAvatar.png";
             } else {
                 $scope.image = "FemaleAvatar.png";
@@ -57,13 +55,11 @@ angular.module('app.controllers')
                         }
                     });
             $scope.signOut = function () {
-                window.localStorage.removeItem('patientAccountId');
+                window.localStorage.removeItem('AccountId');
                 window.localStorage.clear();
-                $state.go('home');
+                $state.go('login');
             };
-            $scope.AddFamilyMember= function (){
-                $state.go('AddFamilyMember');
-            }
+ 
             
             $scope.$on("$ionicView.leave", function (event, data) {
                // $scope.dewatch();

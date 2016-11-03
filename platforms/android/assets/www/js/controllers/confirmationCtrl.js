@@ -4,7 +4,7 @@ angular.module('app.controllers')
                 var data = $.param({
                     code: confirmation.code
                 });
-                WebService.wepServiceConnector(data, "postPatientsConfirmAccount", false).then(function (result) {
+                WebService.wepServiceConnector(data, "postConfirmAccount", false).then(function (result) {
                     var response = result.result;
                     if (response == 'confirm') {
                         $state.go('login');
