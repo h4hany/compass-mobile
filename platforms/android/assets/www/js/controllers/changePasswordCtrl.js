@@ -1,8 +1,8 @@
 angular.module('app.controllers')
-        .controller('changePasswordCtrl', function ($scope, WebService, $state, $ionicPlatform) {
+        .controller('changePasswordCtrl', function ($scope, WebService, $state) {
             $scope.changePassword = function (userData) {
                 var data = $.param({
-                    acountId: window.localStorage.getItem('patientAccountId'),
+                    acountId: window.localStorage.getItem('AccountId'),
                     newPassword: userData.newPassword,
                     oldPassword: userData.oldPassword
                 });

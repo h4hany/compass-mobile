@@ -17,7 +17,7 @@ angular.module('app.controllers')
                             maxlength: 11,
                             regex: /^01\d{9}/
                         },
-                        'PatientCreditCard[credit_card_number]': {
+                        'CreditCard[credit_card_number]': {
                             required: true,
                             creditcard: true
                         }
@@ -34,7 +34,7 @@ angular.module('app.controllers')
                 });
                 if ($('#signupForm').valid()) {
                     var data = $('#signupForm').serialize();
-                    WebService.wepServiceConnector(data, "postCreatePatient", true).then(function (result) {
+                    WebService.wepServiceConnector(data, "postCreate", true).then(function (result) {
                         var data = result.result;
                         if (data.status == "true")
                         {

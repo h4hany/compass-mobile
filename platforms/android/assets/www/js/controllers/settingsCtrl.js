@@ -1,26 +1,24 @@
 angular.module('app.controllers')
-        .controller('settingsCtrl', function ($scope, profileService, $state, $ionicPlatform) {
+        .controller('settingsCtrl', function ($scope, profileService, $state) {
             $scope.signOut = function () {
-                window.localStorage.removeItem('patientAccountId');
+                window.localStorage.removeItem('AccountId');
                 window.localStorage.clear();
                 $state.go('login');
             };
             $scope.goBackview = function () {
                 $state.go('menu.map');
             };
-            $scope.addFamilyMember = function () {
-                $state.go('AddFamilyMember');
-            };
-            $scope.patientsList = profileService.GetProfileLocalDB();
-            $scope.mainName = $scope.patientsList[0].main.name;
+
+            $scope.List = null;//profileService.GetProfileLocalDB();
+            $scope.mainName ='name';// $scope.List[0].main.name;
 
             $scope.editPatient = function (index) {
-                var data = $scope.patientsList[index].data;
-                $state.go('editFamilyMember', {patient_details: JSON.stringify(data)});
+                var data = $scope.List[index].data;
+                $state.go('editFamilyMember', {_details: JSON.stringify(data)});
             };
 
             $scope.editeAccount = function () {
-                $state.go('editPatientAccount');
+                $state.go('editProfileAccount');
             };
 
             $scope.changePassword = function () {

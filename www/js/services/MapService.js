@@ -54,14 +54,14 @@ angular.module('app.services')
                         mainScope.map.getMyLocation(function (location) {
                             mainScope.map.moveCamera({
                                 "target": location.latLng,
-                                "zoom": 17
+                                "zoom": 1
                             });
                             for (var i = 0; i < mainScope.markers.length; i++) {
                                 mainScope.markers[i].remove();
                             }
                             mainScope.map.addMarker({
                                 'position': location.latLng,
-                                'title': 'Home',
+                                'title': 'Hany',
                                 'icon': cordova.file.applicationDirectory + 'www/img/pin.png',
                                 /* 'icon': {
                                  'url': '../img/Pin.png',

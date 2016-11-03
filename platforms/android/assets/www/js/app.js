@@ -7,13 +7,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ngCordova', 'ionic-ratings', 'isteven-multi-select', 'ngDialog', 'angular-datepicker', , 'ion-datetime-picker'])
 
-        .run(function ($ionicPlatform, $rootScope, $state, $ionicPopup, $cordovaNetwork, $timeout, $ionicHistory, $cordovaToast) {
+        .run(function ($ionicPlatform, $rootScope, $state, $ionicPopup, $cordovaNetwork) {
             $ionicPlatform.ready(function () {
-   /*             $rootScope.$ionicGoBack = function(backCount) {
-                    alert("hiiii");
-    $ionicHistory.goBack(backCount);
-    
-};*/
                 $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
                     $ionicPopup.confirm({
                         title: 'No Internet Connection',
@@ -27,28 +22,17 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
                                 }
                             });
                 });
-
-//                document.addEventListener("offline", onOffline, false)
-//                function onOffline() {
-//                    if (window.Connection) {
-//                        if (navigator.connection.type == Connection.NONE) {
-//                           
-//                        }
-//                    }  
-//                }    
-
-
                 $rootScope.dateValue = new Date();
                 $rootScope.timeValue = new Date();
                 $rootScope.datetimeValue = new Date();
                 $rootScope.disableCancelBtn = null;
                 $rootScope.disableCancelBtnTime = 5;
-                if (window.localStorage.getItem('patientAccountId')) {
+                if (window.localStorage.getItem('AccountId')) {
                     $state.go("menu.map");
 
                 } else {
                     window.localStorage.clear();
-                    $state.go("home");
+                    $state.go("login");
                 }
 
 
@@ -59,14 +43,8 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
                     console.log('code: ' + error.code + '\n' +
                             'message: ' + error.message + '\n');
                 }
-                watchID = navigator.geolocation.watchPosition(onSuccess, onError, {timeout: 60000});
-                //navigator.geolocation.getCurrentPosition(onSuccess, onError);
-                //return $rootScope.position;
-
-                //    $rootScope.base_url = 'http://192.168.1.101/new/admin/index.php/';
-                //        $rootScope.base_url = 'http://kashf.mychildguide.com/';
-                $rootScope.base_url = 'http://192.168.1.14/new/admin/index.php/';
-////               $rootScope.base_url = 'http://kashf.mychildguide.com/';
+                //watchID = navigator.geolocation.watchPosition(onSuccess, onError, {timeout: 60000});
+                $rootScope.base_url = 'URL';
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)
                 if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {

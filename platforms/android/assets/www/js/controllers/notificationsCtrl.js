@@ -1,5 +1,5 @@
 angular.module('app.controllers')
-        .controller('notificationsCtrl', function ($scope, WebService, $state, $interval, $ionicPlatform, notificationService, $rootScope) {
+        .controller('notificationsCtrl', function ($scope, WebService, $state, $interval, notificationService, $rootScope) {
             $scope.notificationmenu = notificationService.GetNotifyLocalDB();
             $scope.notificationsmenudetails = function (id)
             {

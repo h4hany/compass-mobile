@@ -54,14 +54,14 @@ angular.module('app.services')
                         mainScope.map.getMyLocation(function (location) {
                             mainScope.map.moveCamera({
                                 "target": location.latLng,
-                                "zoom": 17
+                                "zoom": 1
                             });
                             for (var i = 0; i < mainScope.markers.length; i++) {
                                 mainScope.markers[i].remove();
                             }
                             mainScope.map.addMarker({
                                 'position': location.latLng,
-                                'title': 'Home',
+                                'title': 'Hany',
                                 'icon': cordova.file.applicationDirectory + 'www/img/pin.png',
                                 /* 'icon': {
                                  'url': '../img/Pin.png',
@@ -80,6 +80,7 @@ angular.module('app.services')
                             ///////////////////////
                             mainScope.list = setInterval(function () {
                                 mainScope.map.clear();
+                                /*
                                 for (var i = 0; i < mainScope.markers.length; i++) {
                                     mainScope.markers[i].remove();
                                 }
@@ -94,13 +95,7 @@ angular.module('app.services')
                                             'position': location.latLng,
                                             'title': 'Home',
                                             'icon': cordova.file.applicationDirectory + 'www/img/pin.png',
-                                            /* 'icon': {
-                                             'url': '../img/Pin.png',
-                                             'size': {
-                                             width: 40,
-                                             height: 40
-                                             }
-                                             },*/
+                                           
                                         }, function (marker) {
                                             marker.showInfoWindow();
                                             mainScope.markers.push(marker);
@@ -108,14 +103,7 @@ angular.module('app.services')
                                         mainScope.map.addMarker({
                                             'position': new plugin.google.maps.LatLng(data[i].latitude, data[i].longitude),
                                             'title': data[i].first_name + " " + data[i].last_name,
-                                            'icon': cordova.file.applicationDirectory + 'www/img/PinDr.png', /*
-                                             'icon': {
-                                             'url': 'img/PinDr.png',
-                                             'size': {
-                                             width: 25,
-                                             height: 25
-                                             }
-                                             },*/
+                                            'icon': cordova.file.applicationDirectory + 'www/img/PinDr.png', 
                                         }, function (marker) {
                                             marker.showInfoWindow();
                                             mainScope.markers.push(marker);
@@ -124,7 +112,7 @@ angular.module('app.services')
 
                                     }
                                     //console.log(data);
-                                });
+                                });*/
 
                             }, 10000);
                             ///////////////////////

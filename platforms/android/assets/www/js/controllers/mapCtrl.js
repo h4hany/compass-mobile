@@ -1,16 +1,17 @@
 angular.module('app.controllers')
         .controller('mapCtrl', function ($scope, $ionicPlatform, MapService, $state,backButton,configService,WebService) {
             $scope.$on("$ionicView.beforeEnter", function (event, data) {
-                if (window.localStorage.getItem('patientAccountId')) {
+                if (window.localStorage.getItem('AccountId')) {
                 } else {
                     $state.go("login");
                 }
 
             });
             $ionicPlatform.ready(function () {
-
+/*
                 WebService.wepServiceConnector("", "postPatemptyRequest", false).then(function (result) {
                 });
+                */
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
                 // for form inputs)
                 if (window.StatusBar) {

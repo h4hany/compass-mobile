@@ -30,15 +30,15 @@
             <ion-list class='menu-content'>
                 <ion-item menu-toggle="left"  class='odd' style="color:#000 !important;background-color: #f5f5f5 !important;">
                     <table class="menu-item"><tr><td style="vertical-align: middle">
-                                <img ng-src="img/{{(gender == 1)?'MaleaAvatar.png':'FemaleAvatar.png'}}" class="rounded-img"/></td><td style="vertical-align: middle">{{mainName}}</td></tr>
+                                <img ng-src="img/{{(gender == 1)?'MaleaAvatar.png':'FemaleAvatar.png'}}" class="rounded-img"/></td><td style="vertical-align: middle">Member Name{{mainName}}</td></tr>
                     </table>
                 </ion-item>
-                <ion-item ui-sref="AddFamilyMember" menu-toggle="left" style="color:#fff !important;background-color: #ff7b00 !important;"><div class="menu-item" style="color:#fff !important;background-color: #ff7b00 !important;"><li class="ion-ios-plus-outline menu-icons" style="color:#fff !important;background-color: #ff7b00 !important;"></li>Add Family Member</div></ion-item>
+                <ion-item menu-toggle="left" style="color:#fff !important;background-color: #ff7b00 !important;"><div class="menu-item" style="color:#fff !important;background-color: #ff7b00 !important;"><li class="ion-ios-plus-outline menu-icons" style="color:#fff !important;background-color: #ff7b00 !important;"></li>Add Friend</div></ion-item>
                 <ion-item ui-sref="payment" menu-toggle="left"  class='odd' >
-                    <div class="menu-item"><li class="ion-cash menu-icons"></li>Payment</div>
+                    <div class="menu-item"><li class="ion-cash menu-icons"></li>Credit/Coins</div>
                 </ion-item>
-                <ion-item ui-sref="visitsHistory" menu-toggle="left"  class='even'>
-                    <div class="menu-item"><li class="ion-clock menu-icons"></li>Visits History</div>
+                <ion-item  menu-toggle="left"  class='even'>
+                    <div class="menu-item"><li class="ion-clock menu-icons"></li>List</div>
                 </ion-item>
                 <ion-item ui-sref="help" menu-toggle="left"  class='odd'><div class="menu-item"><li class="ion-help-buoy menu-icons"></li>Help</div></ion-item>
                 <ion-item ui-sref="notifications" menu-toggle="left"  class='even'><div class="menu-item"><li class="ion-ios-bell menu-icons"></li>Notifications</div></ion-item>

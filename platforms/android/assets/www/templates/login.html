@@ -1,26 +1,50 @@
-<ion-view  id="Login" hide-nav-bar="true" class="login-screen">
-    <ion-content padding="true" class="has-header">
-        <div class="logo-image"></div>
-        <form class="list" id="loginForm" name="loginForm" novalidate>
+<ion-view view-title="Sign In" id="Login" class="loginBg" hide-nav-bar="true" >
+    
+    
+    
+    <div class="tabs-striped  tabs-background-dark tabs-color-light">
+        <div class="tabs">
+            
+         <a class="tab-item active" ><i class="icon ion-unlocked"></i> Login </a>
+      <a class="tab-item " ui-sref="signup"> <i class="icon ion-person"></i> Sing Up </a>
+     </div>
+    </div>
+
+    <ion-content class="padding  has-subheader">
+
+        <div class="row responsive-sm padding remvoeBP">
+            <div class="col ">
+                <div class="app-logo " style="text-align: center"><img src="img/ionic.png"></div> 
+
+                <div class="list  removePM">
+                     <form  id="loginForm" name="loginForm" novalidate>
             <div class="list">
                 <label class="item item-input">
-                    <input type="tel" placeholder="Mobile Number" name="LoginForm[mobile]" ng-model="userdata.mobile" required class="phonebg input" maxlength="14">
+                    <input type="tel" placeholder="Mobile Number" name="LoginForm[mobile]" ng-model="userdata.mobile" required  maxlength="14">
                 </label>
             </div>
             <div class="list">
                <label class="item item-input">
-                   <input type="password" placeholder="********&nbsp;&nbsp;&nbsp;&nbsp;" name="LoginForm[password]" ng-model="userdata.password" required class="lockbg input">
+                   <input type="password" placeholder="********&nbsp;&nbsp;&nbsp;&nbsp;" name="LoginForm[password]" ng-model="userdata.password" required >
                 </label>
             </div>
-                    <div class="forget-password "><a ui-sref="forgetPassword" class="general-color-gray-font">Forget Your Password?</a></div>
        
-            <a id="button3"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-disabled="loginForm.$invalid" ng-click="login()" >Log in</a>
             
-            
+               <div class="loginButton"><button class="button ion-unlocked button-block button-balanced" ng-disabled="loginForm.$invalid" ng-click="login()" > Login </button>  </div>
+
            
         </form>
-        <div class="sign-up general-color-gray-font">Don't have account?<a ui-sref="signup" class="general-color-orange-font">Sign Up</a></div>
-       
+                       </div>
+
+             
+            </div>
+        </div>
+
+        <div class="row  padding removePM">
+            <div class="col"> <a class=" button-positive button button-block" ng-click="facebookSignIn()"><i class="icon ion-social-facebook"></i></a> </div>
+            <div class="col"> <a class="button-calm button button-block" ng-click="twitterSignIn()"><i class="icon ion-social-twitter"></i></a> </div>
+        </div>
           <div id="errorsdialog" title="Errors"></div>
+
     </ion-content>
 </ion-view>

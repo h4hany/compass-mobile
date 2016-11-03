@@ -44,13 +44,17 @@ angular.module('app.controllers')
                 });
 
                 if ($('#loginForm').valid()) {
+                    
                     var data = $('#loginForm').serialize();
+                    window.localStorage.setItem('AccountId', data.AccountId);
+                    $state.go("menu.map");
+                    /*
                     WebService.wepServiceConnector(data, "login", true).then(function (result) {
                         var data = result.result;
 
                         if (data.valid && data.code == 1)
                         {
-                            window.localStorage.setItem('patientAccountId', data.patientAccountId);
+                            window.localStorage.setItem('AccountId', data.AccountId);
                             window.localStorage.setItem('token', data.token);
                             var injector = $injector.get('profileService');
                             injector.UpdateProfileLocalDB(result);
@@ -63,14 +67,15 @@ angular.module('app.controllers')
                             $("#errorsdialog").dialog();
                         } else {
 
-                            var message = /*"Incorrect mobile or password ""<ul><li>" + data.user.mobile + "</li></ul>" +*/
+                            var message = 
                                     "<ul><li>" + data.user.password + "</li></ul>";
                             $("#errorsdialog").html(message);
                             $("#errorsdialog").dialog();
                         }
 
                     });
-                }
+                        */   
+                } 
             }
 
 
