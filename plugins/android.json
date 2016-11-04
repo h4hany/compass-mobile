@@ -41,6 +41,9 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.zadsolutions.apps.kashf"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.zadsolutions.apps.kashf"
         }
     },
     "dependent_plugins": {

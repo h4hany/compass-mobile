@@ -262,6 +262,13 @@ module.exports = [
     {
         "file": "plugins/cordova-plugin-x-toast/test/tests.js",
         "id": "cordova-plugin-x-toast.tests"
+    },
+    {
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -280,7 +287,8 @@ module.exports.metadata =
     "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-file": "4.3.0",
     "cordova-plugin-x-toast": "2.5.2",
-    "cordova-plugin-whitelist": "1.3.0"
+    "cordova-plugin-whitelist": "1.3.0",
+    "cordova-plugin-statusbar": "2.2.0"
 };
 // BOTTOM OF METADATA
 });
