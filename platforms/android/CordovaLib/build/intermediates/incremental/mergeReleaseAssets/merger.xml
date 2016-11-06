@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<merger version="3"><dataSet config="main"><source path="/var/www/html/OurProject/compass-mobile/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="release"><source path="/var/www/html/OurProject/compass-mobile/platforms/android/CordovaLib/src/release/assets"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main"><source path="/home/hany/Untitled Folder/compass-mobile/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="release"><source path="/home/hany/Untitled Folder/compass-mobile/platforms/android/CordovaLib/src/release/assets"/></dataSet></merger>
->>>>>>> ea91399467f4b5a6eb1889b7f711433627500dce
+<merger version="3"><dataSet config="main"><source path="/home/hany/Untitled Folder/Untitled Folder/compass-mobile/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="release"><source path="/home/hany/Untitled Folder/Untitled Folder/compass-mobile/platforms/android/CordovaLib/src/release/assets"/></dataSet></merger>

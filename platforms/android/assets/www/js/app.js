@@ -43,6 +43,9 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
                     console.log('code: ' + error.code + '\n' +
                             'message: ' + error.message + '\n');
                 }
+                  if (cordova.platformId == 'android') {
+                    StatusBar.backgroundColorByHexString('#00a6ce');
+                }
                 //watchID = navigator.geolocation.watchPosition(onSuccess, onError, {timeout: 60000});
                 $rootScope.base_url = 'URL';
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -51,10 +54,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
                     cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
                     cordova.plugins.Keyboard.disableScroll(true);
                 }
-                if (window.StatusBar) {
-                    // org.apache.cordova.statusbar required
-                    StatusBar.styleDefault();
-                }
+//                if (window.StatusBar) {
+//                    // org.apache.cordova.statusbar required
+//                    StatusBar.styleDefault();
+//                }
             });
 
         })

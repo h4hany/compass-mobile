@@ -31,12 +31,16 @@ angular.module('app.services')
                     //mainScope.map =null;
 
                 };
+                var mapStyles = [{"featureType": "administrative.locality", "elementType": "all", "stylers": [{"hue": "#2c2e33"}, {"saturation": 7}, {"lightness": 19}, {"visibility": "on"}]}, {"featureType": "landscape", "elementType": "all", "stylers": [{"hue": "#ffffff"}, {"saturation": -100}, {"lightness": 100}, {"visibility": "simplified"}]}, {"featureType": "poi", "elementType": "all", "stylers": [{"hue": "#ffffff"}, {"saturation": -100}, {"lightness": 100}, {"visibility": "off"}]}, {"featureType": "road", "elementType": "geometry", "stylers": [{"hue": "#bbc0c4"}, {"saturation": -93}, {"lightness": 31}, {"visibility": "simplified"}]}, {"featureType": "road", "elementType": "labels", "stylers": [{"hue": "#bbc0c4"}, {"saturation": -93}, {"lightness": 31}, {"visibility": "on"}]}, {"featureType": "road.arterial", "elementType": "labels", "stylers": [{"hue": "#bbc0c4"}, {"saturation": -93}, {"lightness": -2}, {"visibility": "simplified"}]}, {"featureType": "road.local", "elementType": "geometry", "stylers": [{"hue": "#e9ebed"}, {"saturation": -90}, {"lightness": -8}, {"visibility": "simplified"}]}, {"featureType": "transit", "elementType": "all", "stylers": [{"hue": "#e9ebed"}, {"saturation": 10}, {"lightness": 69}, {"visibility": "on"}]}, {"featureType": "water", "elementType": "all", "stylers": [{"hue": "#e9ebed"}, {"saturation": -78}, {"lightness": 67}, {"visibility": "simplified"}]}];
+
                 this.DrawMap = function (element) {
-                    mainScope.map = plugin.google.maps.Map.getMap(element, {
-                        'mapType': plugin.google.maps.MapTypeId.ROADMAP,
+                    mainScope.map = plugin.google.maps.Map.getMap(element,{
+                        'mapType': plugin.google.maps.MapTypeId.HYBRID,
+                        'styles': mapStyles,
+
                         'controls': {
                             'compass': true,
-                            'myLocationButton': true,
+                            // 'myLocationButton': true,
                             'indoorPicker': true,
                             'zoom': true
                         },
@@ -47,14 +51,14 @@ angular.module('app.services')
                             'zoom': true
                         },
                     });
-
                     // Wait until the map is ready status.);
                     mainScope.map.on(plugin.google.maps.event.MAP_READY, function () {
-                        mainScope.map.clear();
+                        // mainScope.map.clear();
+
                         mainScope.map.getMyLocation(function (location) {
                             mainScope.map.moveCamera({
                                 "target": location.latLng,
-                                "zoom": 1
+                                "zoom": 17
                             });
                             for (var i = 0; i < mainScope.markers.length; i++) {
                                 mainScope.markers[i].remove();
@@ -62,7 +66,9 @@ angular.module('app.services')
                             mainScope.map.addMarker({
                                 'position': location.latLng,
                                 'title': 'Hany',
-                                'icon': cordova.file.applicationDirectory + 'www/img/pin.png',
+                                'icon': cordova.file.applicationDirectory + 'www/img/marker.png',
+                                'animation': plugin.google.maps.Animation.BOUNCE,
+
                                 /* 'icon': {
                                  'url': '../img/Pin.png',
                                  'size': {
@@ -79,40 +85,40 @@ angular.module('app.services')
 
                             ///////////////////////
                             mainScope.list = setInterval(function () {
-                                mainScope.map.clear();
+                                //   mainScope.map.clear();
                                 /*
-                                for (var i = 0; i < mainScope.markers.length; i++) {
-                                    mainScope.markers[i].remove();
-                                }
-
-                                DoctorsService.GetDoctors({
-                                    lat: location.latLng.lat,
-                                    long: location.latLng.lng
-                                }).then(function (data) {
-
-                                    for (i = 0; i < data.length; i++) {
-                                        mainScope.map.addMarker({
-                                            'position': location.latLng,
-                                            'title': 'Home',
-                                            'icon': cordova.file.applicationDirectory + 'www/img/pin.png',
-                                           
-                                        }, function (marker) {
-                                            marker.showInfoWindow();
-                                            mainScope.markers.push(marker);
-                                        });
-                                        mainScope.map.addMarker({
-                                            'position': new plugin.google.maps.LatLng(data[i].latitude, data[i].longitude),
-                                            'title': data[i].first_name + " " + data[i].last_name,
-                                            'icon': cordova.file.applicationDirectory + 'www/img/PinDr.png', 
-                                        }, function (marker) {
-                                            marker.showInfoWindow();
-                                            mainScope.markers.push(marker);
-                                        });
-
-
-                                    }
-                                    //console.log(data);
-                                });*/
+                                 for (var i = 0; i < mainScope.markers.length; i++) {
+                                 mainScope.markers[i].remove();
+                                 }
+                                 
+                                 DoctorsService.GetDoctors({
+                                 lat: location.latLng.lat,
+                                 long: location.latLng.lng
+                                 }).then(function (data) {
+                                 
+                                 for (i = 0; i < data.length; i++) {
+                                 mainScope.map.addMarker({
+                                 'position': location.latLng,
+                                 'title': 'Home',
+                                 'icon': cordova.file.applicationDirectory + 'www/img/pin.png',
+                                 
+                                 }, function (marker) {
+                                 marker.showInfoWindow();
+                                 mainScope.markers.push(marker);
+                                 });
+                                 mainScope.map.addMarker({
+                                 'position': new plugin.google.maps.LatLng(data[i].latitude, data[i].longitude),
+                                 'title': data[i].first_name + " " + data[i].last_name,
+                                 'icon': cordova.file.applicationDirectory + 'www/img/PinDr.png', 
+                                 }, function (marker) {
+                                 marker.showInfoWindow();
+                                 mainScope.markers.push(marker);
+                                 });
+                                 
+                                 
+                                 }
+                                 //console.log(data);
+                                 });*/
 
                             }, 10000);
                             ///////////////////////
